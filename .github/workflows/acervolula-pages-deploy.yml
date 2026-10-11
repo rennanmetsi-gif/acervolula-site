@@ -45,6 +45,19 @@ jobs:
         shell: bash
         run: |
           cat > _site/robots.txt <<'EOF'
+          # Leitores de prévia de links do Instagram, Facebook, Messenger e WhatsApp
+          User-agent: facebookexternalhit
+          Allow: /
+
+          User-agent: Facebot
+          Allow: /
+
+          User-agent: meta-externalagent
+          Allow: /
+
+          User-agent: Meta-ExternalFetcher
+          Allow: /
+
           User-agent: *
           Allow: /
           Disallow: /admin/
