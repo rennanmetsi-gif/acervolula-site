@@ -41,6 +41,26 @@ jobs:
       - name: Compilar Jekyll
         run: bundle exec jekyll build
 
+      - name: Ajustar SEO exclusivo do novo domínio
+        shell: bash
+        run: |
+          cat > _site/robots.txt <<'EOF'
+          User-agent: *
+          Allow: /
+          Disallow: /admin/
+          Sitemap: https://acervolula.com.br/sitemap.xml
+          EOF
+          cat > _site/sitemap.xml <<'EOF'
+          <?xml version="1.0" encoding="UTF-8"?>
+          <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+            <url><loc>https://acervolula.com.br/</loc></url>
+          </urlset>
+          EOF
+          find _site -type f -name '*.html' ! -path '_site/index.html' -print0 |
+            while IFS= read -r -d '' file; do
+              sed -i '0,/<head>/s//<head><meta name="robots" content="noindex,follow">/' "$file"
+            done
+
       - name: Preparar GitHub Pages
         uses: actions/configure-pages@v5
 
