@@ -6,3 +6,5 @@ Este repositório contém apenas a automação de publicação. O código-fonte 
 
 O workflow `Publicar Acervo Lula` compila a branch `main` do repositório `rennanmetsi-gif/data2commsfinal` e publica o resultado em `acervolula.com.br`.
 A rotina agendada no GitHub Actions é executada conforme a disponibilidade do serviço e não garante atualização imediata; o disparo manual ou um novo commit neste repositório força outra execução.
+
+Última atualização de interface solicitada: fonte `rennanmetsi-gif/data2commsfinal`, commit `f77cef48e73c5bdf0895c4121ed9abd0deb9f992`.
