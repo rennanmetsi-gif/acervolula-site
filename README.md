@@ -11,7 +11,7 @@ O [guia completo de manutenção, particularidades e cuidados está no README da
 O workflow [Publicar Acervo Lula](.github/workflows/acervolula-pages-deploy.yml):
 
 1. Baixa `data2commsfinal/main`.
-2. Substitui o CNAME do checkout de build por `acervolula.com.br`.
+2. Substitui o CNAME do checkout de build por `acervolula.com.br` e define a página do Acervo na raiz (`index.html`).
 3. Compila com Ruby 3.2 e `bundle exec jekyll build`.
 4. Gera robots/sitemap específicos do Acervo e aplica `noindex,follow` aos HTMLs fora da raiz.
 5. Publica `_site` no GitHub Pages.

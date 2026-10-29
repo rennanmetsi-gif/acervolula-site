@@ -32,6 +32,17 @@ jobs:
       - name: Definir o domínio deste deploy
         run: printf 'acervolula.com.br\n' > CNAME
 
+      - name: Definir página inicial exclusiva do Acervo Lula
+        run: |
+          cat > index.html <<'EOF'
+          ---
+          layout: null
+          permalink: /
+          sitemap: false
+          ---
+          {% include links-page.html %}
+          EOF
+
       - name: Preparar Ruby
         uses: ruby/setup-ruby@v1
         with:
